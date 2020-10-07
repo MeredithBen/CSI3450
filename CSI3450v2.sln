@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CSI3450v2", "CSI3450v2\CSI3450v2.njsproj", "{97903C5B-AA27-4F8B-B615-716BEA855260}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97903C5B-AA27-4F8B-B615-716BEA855260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97903C5B-AA27-4F8B-B615-716BEA855260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97903C5B-AA27-4F8B-B615-716BEA855260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97903C5B-AA27-4F8B-B615-716BEA855260}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E99DCD60-E674-4243-A2B1-66E2C7D1195D}
+	EndGlobalSection
+EndGlobal
