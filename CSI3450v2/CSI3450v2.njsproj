@@ -30,11 +30,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
-    <Content Include="routes\index.js" />
-    <Content Include="routes\users.js" />
+    <Content Include="connection.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\favoritealbums.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\favoriteartists.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\favoritesongs.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\login.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\profile.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\playlists.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="routes\home.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="routes\search.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />

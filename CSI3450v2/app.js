@@ -6,11 +6,30 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
+//const mysqlConnection = require('./connection');
+
+//I did some basic setup for the routes here
+const homeRoutes = require('./routes/home');
+const searchRoutes = require('./routes/search');
+const playlistRoutes = require('./routes/playlists');
+const loginRoutes = require('./routes/login');
+const profileRoutes = require('./routes/profile');
+const favSongsRoutes = require('./routes/favoritesongs');
+const favArtistsRoutes = require('./routes/favoriteartists');
+const favAlbumsRoutes = require('./routes/favoritealbums');
+
+
+app.use('/', homeRoutes); //this might have to be login?
+app.use('/search', searchRoutes);
+app.use('/playlists', playlistRoutes);
+app.use('/login', loginRoutes);
+app.use('/profile', profileRoutes);
+app.use('/favoritesongs', favSongsRoutes);
+app.use('/favoriteartists', favArtistsRoutes);
+app.use('/favoritealbums', favAlbumsRoutes);
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +43,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
