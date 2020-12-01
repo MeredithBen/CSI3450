@@ -6,6 +6,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var ejs = require('ejs');
 var app = express();
 //const mysqlConnection = require('./connection');
 
@@ -33,7 +35,7 @@ app.use('/favoritealbums', favAlbumsRoutes);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'pug'); //change to ejs if thats what we go with 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
