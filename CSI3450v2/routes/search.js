@@ -2,17 +2,11 @@ const express = require('express');
 const router = express.Router();
 const mysqlConnection = require('../connection');
 
-//this is just sample code
+
 module.exports = {
-    searchByArtist: (req, res) => {
-        let searchQuery = "SELECT * FROM playlists LIMIT 15";
-        mysqlConnection.query(searchQuery, (err, rows) => {
-            if (err) {
-                throw err;
-            }
-            res.send(rows);
-        });
-    }, 
+    getSearchPage: (req, res) => {
+        res.render('search.ejs');
+    },
     search: (req, res) => {
         var artist = req.body.searchArtist;
         var song = req.body.searchSong;
@@ -21,7 +15,7 @@ module.exports = {
         var resultsArray = [];
         if (song) {
             var songGenre;
-            getSongGenre = "SELECT song_genre FROM song WHERE song_name = " + song;
+            getSongGenre = "SELECT song_genre FROM song WHERE song_name = '\"" + song + "'\"";
             mysqlConnection.query(getSongGenre, (err, rows) => {
                 if (err) throw err;
                 songGenre = rows[0]; //I think it will be returned as an array even if one row but should double check
@@ -34,19 +28,19 @@ module.exports = {
         }
         if (artist) {
             var artistID;
-            getArtistID = "SELECT artist_id FROM artist WHERE artist_name = " + artist;
+            getArtistID = "SELECT artist_id FROM artist WHERE artist_name = '\"" + artist + "'\"";
             mysqlConnection.query(getArtistID, (err, rows) => {
                 if (err) throw err;
                 artistID = rows[0];
             });
-            artistSearchQuery = "SELECT song_name FROM artist_song_link JOIN song USING song_id WHERE artist_id = " + artistID;
+            artistSearchQuery = "SELECT song_name FROM song JOIN artist_song_link ON artist_song_link.song_id = song.song_id WHERE artist_id = " + artistID;
             mysqlConnection.query(artistSearchQuery, (err, rows) => {
                 if (err) throw err;
                 resultsArray.push(rows);
             });
         }
         if (genre) {
-            genreSearchQuery = "SELECT song_name FROM song WHERE song_genre = " + genre;
+            genreSearchQuery = "SELECT song_name FROM song WHERE song_genre = '\"" + genre + "'\"";
             mysqlConnection.query(genreSearchQuery, (err, rows) => {
                 if (err) throw err;
                 resultsArray.push(rows);
@@ -55,7 +49,7 @@ module.exports = {
         if (decade) {
             var bottom = Math.floor(decade / 10) * 10;
             var top = (Math.ceil(decade / 10) * 10) - 1;
-            decadeSearchQuery = "SELECT song_name FROM song JOIN album USING album_id WHERE album_year BETWEEN " +
+            decadeSearchQuery = "SELECT song_name FROM song JOIN album ON song.album_id = album.album_id WHERE album_year BETWEEN " +
                 bottom + " AND " + top;
             mysqlConnection.query(decadeSearchQuery, (err, rows) => {
                 if (err) throw err;

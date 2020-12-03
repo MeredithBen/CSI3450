@@ -58,6 +58,9 @@
     <Content Include="routes\search.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\header.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />

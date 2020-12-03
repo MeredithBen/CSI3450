@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const mysqlConnection = require('../connection');
 
-//this is just sample code
+
 module.exports = {
+    getProfilePage: (req, res) => {
+        res.render('profile.ejs');
+    },
     changeUsername: (req, res) => {
         //we get the userID by setting request.session.userID = userID after their login was authenticated
             //let userID = request.session.userID; (or something like this)
@@ -24,7 +27,7 @@ module.exports = {
         let favDec2 = req.body.favDec2;
         let favDec3 = req.body.favDec3;
         if (favDec1) {
-            decQuery = "UPDATE user SET fav_dec_1 = " + favDec1;
+            decQuery = "UPDATE user SET fav_dec_1 = '\"" + favDec1 + "'\"";
             mysqlConnection.query(decQuery, (err) => {
                 if (err) {
                     throw err;
@@ -35,7 +38,7 @@ module.exports = {
             });
         }
         if (favDec2) {
-            decQuery = "UPDATE user SET fav_dec_2 = " + favDec2;
+            decQuery = "UPDATE user SET fav_dec_2 = '\"" + favDec2 + "'\"";
             mysqlConnection.query(decQuery, (err) => {
                 if (err) {
                     throw err;
@@ -46,7 +49,7 @@ module.exports = {
             });
         }
         if (favDec3) {
-            decQuery = "UPDATE user SET fav_dec_3 = " + favDec3;
+            decQuery = "UPDATE user SET fav_dec_3 = '\"" + favDec3 + "'\"";
             mysqlConnection.query(decQuery, (err) => {
                 if (err) {
                     throw err;
@@ -63,7 +66,7 @@ module.exports = {
         let favGen2 = req.body.favGen2;
         let favGen3 = req.body.favGen3;
         if (favGen1) {
-            genQuery = "UPDATE user SET fav_gen_1 = " + favGen1;
+            genQuery = "UPDATE user SET fav_gen_1 = '\"" + favGen1 + "'\"";
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;
@@ -74,7 +77,7 @@ module.exports = {
             });
         }
         if (favGen2) {
-            genQuery = "UPDATE user SET fav_gen_2 = " + favGen2;
+            genQuery = "UPDATE user SET fav_gen_2 = '\"" + favGen2 + "'\"";
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;
@@ -85,7 +88,7 @@ module.exports = {
             });
         }
         if (favGen3) {
-            genQuery = "UPDATE user SET fav_gen_3 = " + favGen3;
+            genQuery = "UPDATE user SET fav_gen_3 = '\"" + favGen3 + "'\"";
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;

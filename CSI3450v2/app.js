@@ -8,34 +8,42 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
+const { changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
 var app = express();
 //const mysqlConnection = require('./connection');
 
-//I did some basic setup for the routes here
-const homeRoutes = require('./routes/home');
-const searchRoutes = require('./routes/search');
-const playlistRoutes = require('./routes/playlists');
-const loginRoutes = require('./routes/login');
-const profileRoutes = require('./routes/profile');
-const favSongsRoutes = require('./routes/favoritesongs');
-const favArtistsRoutes = require('./routes/favoriteartists');
-const favAlbumsRoutes = require('./routes/favoritealbums');
+//If we do it the way I have set up right now, we don't need these dependencies. Just keeping them in case. 
+//const homeRoutes = require('./routes/home');
+//const searchRoutes = require('./routes/search');
+//const playlistRoutes = require('./routes/playlists');
+//const loginRoutes = require('./routes/login');
+//const profileRoutes = require('./routes/profile');
+//const favSongsRoutes = require('./routes/favoritesongs');
+//const favArtistsRoutes = require('./routes/favoriteartists');
+//const favAlbumsRoutes = require('./routes/favoritealbums');
 
 
-app.use('/', homeRoutes); //this might have to be login?
-app.use('/search', searchRoutes);
-app.use('/playlists', playlistRoutes);
-app.use('/login', loginRoutes);
-app.use('/profile', profileRoutes);
-app.use('/favoritesongs', favSongsRoutes);
-app.use('/favoriteartists', favArtistsRoutes);
-app.use('/favoritealbums', favAlbumsRoutes);
+app.get('/', getHomePage); //this might have to be login?
+app.get('/search', getSearchPage);
+app.get('/profile', getProfilePage);
+app.get('/playlists', getPlaylistsPage);
+app.get('/favoritesongs', getFavSongsPage);
+app.get('/favoriteartists', getFavArtistsPage);
+app.get('/favoritealbums', getFavAlbumsPage);
+app.get('/login', getLoginPage);
+
+app.post('/profile', changeUsername)
+app.post('/profile', setFavDecades)
+app.post('/profile', setFavGenres)
+app.post('/login', login);
+app.post('/search', search);
+
 
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug'); //change to ejs if thats what we go with 
+app.set('view engine', 'ejs'); //change to ejs if thats what we go with 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
