@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(cream.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    position: absolute;
+    top: 350px;
+    left: 1250px;
+    color: black;
+    font-size: 320%;
+    font-family: sans-serif;
+}
+
+p {
+    position: absolute;
+    top: 500px;
+    left: 400px;
+    text-align: left;
+    color: black;
+    font-size: 200%;
+    font-family: sans-serif;
+}
+
+.dropbtn {
+    position: absolute;
+    top: 575px;
+    left: 525px;
+    font-family: sans-serif;
+}
+
+p1 {
+    position: absolute;
+    top: 500px;
+    right: 400px;
+    text-align: left;
+    color: black;
+    font-size: 200%;
+    font-family: sans-serif;
+}
+
+.dropbtn1 {
+    position: absolute;
+    top: 575px;
+    right: 525px;
+    font-family: sans-serif;
+}
+
+body {
+    border: 3px solid crimson;
+}
