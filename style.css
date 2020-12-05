@@ -2,11 +2,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: url(Cool-Music-Wallpapers-64+-images-.jpg);
+    background-image: url(login.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    
+    background-color: blue;
 }
+
+  
+
 .box{
     width: 300px;
     padding: 30px;
@@ -29,7 +32,7 @@ body{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 3px solid #0367fd;
+    border: 3px solid #33bb55;
     padding: 14px 10px;
     width: 220px;
     outline: none;
@@ -48,7 +51,7 @@ body{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 3px solid yellow;
+    border: 3px solid rgb(81, 187, 89);
     padding: 14px 10px;
     outline: none;
     color: white;
@@ -57,6 +60,8 @@ body{
     cursor: pointer;
 }
 .box input[type="submit"]:hover{
-    background: yellow;
+    background: rgb(30, 75, 219);
 }
+
+
 

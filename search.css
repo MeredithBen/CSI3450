@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: lightgreen;
+}
+
+.search-box {
+    position: absolute;
+    top: 300px;
+    left: 700px;
+    transform: translate(-50%,-50%);
+    background: black;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn {
+    background:black;
+}
+
+.search-btn {
+    color: lightgreen;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color:white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-box2 {
+    position: absolute;
+    top: 300px;
+    left: 1100px;
+    transform: translate(-50%,-50%);
+    background: black;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box2:hover > .search-txt2 {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box2:hover > .search-btn2 {
+    background:black;
+}
+
+.search-btn2 {
+    color: lightgreen;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt2 {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color:white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-box3 {
+    position: absolute;
+    top: 300px;
+    left: 1500px;
+    transform: translate(-50%,-50%);
+    background: black;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box3:hover > .search-txt3 {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box3:hover > .search-btn3 {
+    background:black;
+}
+
+.search-btn3 {
+    color: lightgreen;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt3 {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color:white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-box4 {
+    position: absolute;
+    top: 300px;
+    left: 1900px;
+    transform: translate(-50%,-50%);
+    background: black;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box4:hover > .search-txt4 {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box4:hover > .search-btn4 {
+    background:black;
+}
+
+.search-btn4 {
+    color: lightgreen;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt4 {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color:white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+h1 {
+    margin-top: 225px;
+    margin-left: 585px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin-top: -63px;
+    margin-left: 975px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin-top: -70px;
+    margin-left: 1375px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+h4 {
+    margin-top: -77px;
+    margin-left: 1765px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+p {
+    margin-top: -250px;
+    margin-left: 1050px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 5em;
+    letter-spacing: -2px;
+    text-transform: uppercase;  
+}
