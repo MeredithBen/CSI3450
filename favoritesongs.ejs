@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" and dir="Itr">
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Favorite Songs</title>
+        <link rel="stylesheet" href="css/favoritesongs.css"> 
+    </head>
+
+    <!-- style for table -->
+    <style>
+        table {
+          font-family: "Trebuchet MS", sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          font-weight: bold;
+        }
+        
+        td, th {
+          border: 1px solid #000000;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: rgb(165, 165, 165);
+        }
+        </style>
+
+
+        <!-- style for textfield -->
+        <style>
+            input[type=text] {
+                width: 10%;
+                border: 2px gray;
+                border-radius: 4px;
+                margin: 4px 0;
+                outline: none;
+                padding: 13px;
+                box-sizing: border-box;
+                transition: 0.3s;   
+            }
+
+            input[type=text]:focus {
+                border-color: dodgerblue;
+                box-shadow: 0 0 8px 0 dodgerblue;
+            }
+        </style>
+
+    <body>
+        <h1>Favorite Songs</h1>
+
+        <h2>Songs</h2>
+
+        <div class="container">
+            <button class="btn btn1">Add Song</button>
+        </div> 
+        
+        <div class="container">
+            <button class="btn btn2">Remove Song</button>
+        </div> 
+
+        <div>
+            <input type="text" required class="add" style ="background-color: rgb(177, 177, 177);" placeholder= "Enter Song Name...">
+        </div>
+
+        <div>
+            <input type="text" required class="remove" style ="background-color: rgb(177, 177, 177);" placeholder="Enter Song Name..."> 
+        </div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Artist</th>
+    <th>Genre</th>
+  </tr>
+  <tr>
+    <td>Nodbody Else</td>
+    <td>Dustycloud</td>
+    <td>EDM</td>
+  </tr>
+  <tr>
+    <td>The Sound</td>
+    <td>The 1975</td>
+    <td>Pop</td>
+  </tr>
+  <tr>
+    <td>Silhouettes</td>
+    <td>Echos</td>
+    <td>EDM</td>
+  </tr>
+  
+</table>
+            
+      
+        
+    </body>
+</html>
+
+
+
+
+       

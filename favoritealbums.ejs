@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" and dir="Itr">
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Favorite Songs</title>
+        <link rel="stylesheet" href="css/favoritealbums.css">
+
+      
+    </head>
+
+    <!-- style for table -->
+    <style>
+        table {
+          font-family: "Trebuchet MS", sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          font-weight: bold;
+        }
+        
+        td, th {
+          border: 1px solid #000000;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: rgb(246, 244, 244);
+        }
+        </style>
+
+
+        <!-- style for textfield -->
+        <style>
+            input[type=text] {
+                width: 10%;
+                border: 2px gray;
+                border-radius: 4px;
+                margin: 4px 0;
+                outline: none;
+                padding: 13px;
+                box-sizing: border-box;
+                transition: 0.3s;   
+            }
+
+            input[type=text]:focus {
+                border-color: dodgerblue;
+                box-shadow: 0 0 8px 0 dodgerblue;
+            }
+        </style>
+
+
+    <body>
+        <h1>Favorite Albums</h1>
+         
+        <h2>Albums</h2>
+      
+        <div class="container">
+            <button class="btn btn1">Add Album</button>
+        </div> 
+        
+        <div class="container">
+            <button class="btn btn2">Remove Album</button>
+        </div> 
+
+        <div>
+            <input type="text" required class="add" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Song Name...">
+        </div>
+
+        <div>
+            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+        </div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Year</th>
+  </tr>
+  <tr>
+    <td>You Are The Traffic</td>
+    <td>Alternative</td>
+    <td>2020</td>
+  </tr>
+  <tr>
+    <td>Language & Perspective</td>
+    <td>Alternative</td>
+    <td>2014</td>
+  </tr>
+  <tr>
+    <td>No Good</td>
+    <td>EDM</td>
+    <td>2019</td>
+  </tr>
+  
+</table>
+            
+      
+        
+    </body>
+</html>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" and dir="Itr">
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>Favorite Songs</title>
+        <link rel="stylesheet" href="css/favoriteartists.css">
+    </head>
+
+    <style>
+        table {
+          font-family: "Trebuchet MS", sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          font-weight: bold;
+        }
+        
+        td, th {
+          border: 1px solid #fffefe;
+          text-align: left;
+          padding: 8px;
+          color: white;
+        }
+        
+        tr:nth-child(even) {
+          background-color: rgb(29, 29, 29);
+        }
+        </style>
+
+        <!-- style for textfield -->
+        <style>
+            input[type=text] {
+                width: 10%;
+                border: 2px gray;
+                border-radius: 4px;
+                margin: 4px 0;
+                outline: none;
+                padding: 13px;
+                box-sizing: border-box;
+                transition: 0.3s;   
+            }
+
+            input[type=text]:focus {
+                border-color: dodgerblue;
+                box-shadow: 0 0 8px 0 dodgerblue;
+            }
+        </style>
+
+
+    <body>
+        <h1>Favorite Artists</h1>
+
+        <h2>Songs</h2>
+
+        <div class="container">
+            <button class="btn btn1">Add Artist</button>
+        </div> 
+        
+        <div class="container">
+            <button class="btn btn2">Remove Artist</button>
+
+        <div>
+            <input type="text" required class="add" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Song Name...">
+        </div>
+
+        <div>
+            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+        </div>
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Decade</th>
+          </tr>
+          <tr>
+            <td>Stephen</td>
+            <td>Alternative</td>
+            <td>2010</td>
+          </tr>
+          <tr>
+            <td>Breaking Benjamin</td>
+            <td>Rock</td>
+            <td>2000</td>
+          </tr>
+          <tr>
+            <td>Tupac</td>
+            <td>Rap</td>
+            <td>1990</td>
+          </tr>
+          
+        </table>
+            
+      
+        
+    </body>
+</html>

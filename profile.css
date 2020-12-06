@@ -8,6 +8,41 @@
     background: #f7f6ff;
     background-color: #4d6788;
   }
+
+  .btn1 {
+    border: 2px solid rgb(0, 0, 0);
+    position: absolute;
+    top: 1050px;
+    left: 1130px;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.5s;
+    color: rgba(0, 0, 0, 0.877);
+}
+
+.btn1:hover {
+    color: rgb(236, 236, 236);
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100;
+    background: rgb(0, 0, 0);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn1::before {
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
   
   h1 {
     position: absolute;
