@@ -32,7 +32,7 @@
         <style>
             input[type=text] {
                 width: 10%;
-                border: 2px gray;
+                border: 2px rgb(128, 128, 128);
                 border-radius: 4px;
                 margin: 4px 0;
                 outline: none;
@@ -42,8 +42,8 @@
             }
 
             input[type=text]:focus {
-                border-color: dodgerblue;
-                box-shadow: 0 0 8px 0 dodgerblue;
+                border-color: rgb(0, 0, 0);
+                box-shadow: 0 0 8px 0 rgb(0, 0, 0);
             }
         </style>
 
@@ -68,31 +68,25 @@
             <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
         </div>
 
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Decade</th>
-          </tr>
-          <tr>
-            <td>Stephen</td>
-            <td>Alternative</td>
-            <td>2010</td>
-          </tr>
-          <tr>
-            <td>Breaking Benjamin</td>
-            <td>Rock</td>
-            <td>2000</td>
-          </tr>
-          <tr>
-            <td>Tupac</td>
-            <td>Rap</td>
-            <td>1990</td>
-          </tr>
-          
-        </table>
-            
-      
-        
+        <div class="container">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Genre</th>
+              <th>Decade</th>
+            </tr>
+            <tr>
+              <tbody>
+                  <% artist.forEach(function(artist){ %>
+                      <tr>
+                          <td><%= artist.ARTIST_NAME %></td>
+                          <td><%= artist.ARTIST_GENRE %></td>
+                          <td><%= artist.ARTIST_DEC %></td>
+                      </tr>
+                      <% }); %>
+              </tbody>
+          </table>
+          </div>   
+          <script src="./routes/favoriteartists.js"></script>
     </body>
 </html>

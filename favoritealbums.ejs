@@ -26,7 +26,7 @@
         }
         
         tr:nth-child(even) {
-          background-color: rgb(246, 244, 244);
+          background-color: rgb(183, 143, 216);
         }
         </style>
 
@@ -45,8 +45,8 @@
             }
 
             input[type=text]:focus {
-                border-color: dodgerblue;
-                box-shadow: 0 0 8px 0 dodgerblue;
+                border-color: rgb(0, 0, 0);
+                box-shadow: 0 0 8px 0 rgb(0, 0, 0);
             }
         </style>
 
@@ -72,33 +72,28 @@
             <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
         </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Genre</th>
-    <th>Year</th>
-  </tr>
-  <tr>
-    <td>You Are The Traffic</td>
-    <td>Alternative</td>
-    <td>2020</td>
-  </tr>
-  <tr>
-    <td>Language & Perspective</td>
-    <td>Alternative</td>
-    <td>2014</td>
-  </tr>
-  <tr>
-    <td>No Good</td>
-    <td>EDM</td>
-    <td>2019</td>
-  </tr>
-  
-</table>
+        <div class="container">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Genre</th>
+              <th>Year</th>
+            </tr>
+            <tr>
+              <tbody>
+                  <% album.forEach(function(album){ %>
+                      <tr>
+                          <td><%= album.ALBUM_NAME %></td>
+                          <td><%= album.ALBUM_GENRE %></td>
+                          <td><%= album.ALBUM_YEAR %></td>
+                      </tr>
+                      <% }); %>
+              </tbody>
+          </table>
+          </div>   
+          <script src="./routes/favoritealbums.js"></script>
             
       
         
-    </body>
-</html>
     </body>
 </html>

@@ -8,7 +8,6 @@ const express = require('express');
 const { isBuffer } = require('util');
 const app = express()
 const port = 3000
-//const mysqlConnection = require('./connection');
 const { changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
 //var session = require('express-session');
 //var favicon = require('serve-favicon');
@@ -25,38 +24,13 @@ app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
 
 
+
 //set views
 app.set('port', process.env.port || port);
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-//page paths
-app.get('/login', (req, res) => {
-    res.render('login')
-})
-app.get('/profile', (req, res) => {
-    res.render('profile')    
-})
-app.get('/playlists', (req, res) => {
-    res.render('playlists')
-})
-app.get('/favoritesongs', (req, res) => {
-    res.render('favoritesongs')
-})
-app.get('/home', (req, res) => {
-    res.render('home')
-})
-app.get('/search', (req, res) => {
-    res.render('search')
-})
-app.get('/favoriteartists', (req, res) => {
-    res.render('favoriteartists')
-})
-app.get('/favoritealbums', (req, res) => {
-    res.render('favoritealbums')
-})
 
 
 //define routes
@@ -68,6 +42,7 @@ const {getFavSongsPage} = require('./routes/favoritesongs');
 const {getFavArtistsPage} = require('./routes/favoriteartists');
 const {getFavAlbumsPage} = require('./routes/favoritealbums');
 const {getHomePage} = require('./routes/home');
+const {getNewUserPage} = require('./routes/newuser');
 
 //connect routes and views
 app.get('/login', getLoginPage); 
@@ -78,7 +53,7 @@ app.get('/favoritesongs', getFavSongsPage);
 app.get('/favoriteartists', getFavArtistsPage);
 app.get('/favoritealbums', getFavAlbumsPage);
 app.get('/home', getHomePage);
-
+app.get('/newuser', getNewUserPage);
 
 /* app.post('/profile', changeUsername)
 app.post('/profile', setFavDecades)
@@ -88,37 +63,5 @@ app.post('/search', search); */
 
 // listen on port 3000
 app.listen(port, () => console.info(`Listening on port ${port}`))
-
-
-//catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
 
 

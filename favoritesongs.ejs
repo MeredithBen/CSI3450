@@ -24,7 +24,7 @@
         }
         
         tr:nth-child(even) {
-          background-color: rgb(165, 165, 165);
+          background-color: rgb(211, 171, 148);
         }
         </style>
 
@@ -43,8 +43,8 @@
             }
 
             input[type=text]:focus {
-                border-color: dodgerblue;
-                box-shadow: 0 0 8px 0 dodgerblue;
+                border-color: rgb(0, 0, 0);
+                box-shadow: 0 0 8px 0 rgb(0, 0, 0);
             }
         </style>
 
@@ -62,40 +62,36 @@
         </div> 
 
         <div>
-            <input type="text" required class="add" style ="background-color: rgb(177, 177, 177);" placeholder= "Enter Song Name...">
+            <input type="text" required class="add" style ="background-color: rgb(255, 254, 254);" placeholder= "Enter Song Name...">
         </div>
 
         <div>
-            <input type="text" required class="remove" style ="background-color: rgb(177, 177, 177);" placeholder="Enter Song Name..."> 
+            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
         </div>
 
+        <div class="container">
 <table>
   <tr>
     <th>Name</th>
-    <th>Artist</th>
     <th>Genre</th>
+    <th>Decade</th>
   </tr>
   <tr>
-    <td>Nodbody Else</td>
-    <td>Dustycloud</td>
-    <td>EDM</td>
-  </tr>
-  <tr>
-    <td>The Sound</td>
-    <td>The 1975</td>
-    <td>Pop</td>
-  </tr>
-  <tr>
-    <td>Silhouettes</td>
-    <td>Echos</td>
-    <td>EDM</td>
-  </tr>
-  
+    <tbody>
+        <% song.forEach(function(song){ %>
+            <tr>
+                <td><%= song.SONG_NAME %></td>
+                <td><%= song.SONG_GENRE %></td>
+                <td><%= song.DECADE %></td>
+            </tr>
+            <% }); %>
+    </tbody>
 </table>
-            
+</div>           
       
-        
+<script src="./routes/favoritesongs.js"></script>
     </body>
+    
 </html>
 
 

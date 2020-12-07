@@ -20,8 +20,8 @@ h2 {
 .btn1 {
     border: 2px solid rgb(0, 0, 0);
     position: absolute;
-    top: 1050px;
-    left: 600px;
+    top: 300px;
+    left: 400px;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -55,8 +55,8 @@ h2 {
 .btn2 {
     border: 2px solid rgb(0, 0, 0);
     position: absolute;
-    top: 1050px;
-    left: 1700px;
+    top: 300px;
+    left: 1900px;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -78,12 +78,12 @@ h2 {
 
 .add {
     position: absolute;
-    top: 975px;
-    left: 550px;
+    top: 250px;
+    left: 350px;
 }
 
 .remove {
     position: absolute;
-    top: 975px;
-    left: 1650px;
+    top: 250px;
+    left: 1850px;
 }
