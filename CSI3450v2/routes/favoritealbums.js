@@ -9,7 +9,7 @@ module.exports = {
     },
     //this is just sample code
     returnFavAlbums: (req, res) => {
-        let favAlbumQuery = "SELECT * FROM user_fav_albums LIMIT 15";
+        let favAlbumQuery = "SELECT * FROM song LIMIT 10";
         mysqlConnection.query(favAlbumQuery, (err, rows) => {
             if (err) {
                 throw err;

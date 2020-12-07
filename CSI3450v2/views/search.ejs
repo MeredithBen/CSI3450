@@ -1,0 +1,122 @@
+  
+<!DOCTYPE html>
+<html lang="en" and dir="Itr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <!--link rel="stylesheet" href="css/search.css"-->
+    <script src="https://kit.fontawesome.com/9b28d88510.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<form method="post"> <!-- took out enctype="multipart/form-data" -->
+    <h1>Search by Song</h1>
+
+    <h2>Search by Artist</h2>
+
+    <h3>Search by Genre</h3>
+
+    <h4>Search by Decade</h4>
+
+    <p>Trouvaille</p>
+
+  <div class="search-box">
+      <input class="search-txt" type="text" name="searchSong" placeholder="Type to search">
+      <a class="search-btn" href="#">
+        <i class="fas fa-search"></i>
+      </a>
+  </div>  
+
+  <div class="search-box2">
+    <input class="search-txt2" type="text" name="searchArtist" placeholder="Type to search">
+    <a class="search-btn2" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+</div>  
+
+<div class="search-box3">
+    <input class="search-txt3" type="text" name="searchGenre" placeholder="Type to search">
+    <a class="search-btn3" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+</div>  
+
+<div class="search-box4">
+    <input class="search-txt4" type="text" name="searchDecade" placeholder="Type to search">
+    <a class="search-btn4" href="#">
+      <i class="fas fa-search"></i>
+    </a>
+</div> 
+<button type="submit">Search!</button>
+</form>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody>
+</table>
+<% if(typeof outputArray != 'undefined'){%>
+ <ul>
+    <% outputArray.forEach(function(song) { %>
+        <li><%= song %></li>
+    <% }); %>
+<% } %>
+  </ul>
+</body>
+</html>

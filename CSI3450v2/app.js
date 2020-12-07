@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
 var app = express();
-//const mysqlConnection = require('./connection');
 
 //Check/fix all the names after Charles adds his functions! 
 const { getHomePage } = require('./routes/home');
@@ -19,10 +18,23 @@ const { getLoginPage } = require('./routes/login');
 const { getProfilePage, changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
 const { getFavSongsPage } = require('./routes/favoritesongs');
 const { getFavArtistsPage } = require('./routes/favoriteartists');
-const { getFavAlbumsPage } = require('./routes/favoritealbums');
+const { getFavAlbumsPage, returnFavAlbums} = require('./routes/favoritealbums');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs'); 
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/testing', getLoginPage);
-app.get('/prof', getProfilePage)
+app.get('/test', returnFavAlbums)
 
 app.get('/', getHomePage); //this might have to be login?
 app.get('/search', getSearchPage);
@@ -40,27 +52,19 @@ app.post('/profile', setFavGenres)
 app.post('/search', search);
 
 
-
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs'); 
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function () {
+    debug('Express server listening on port ' + server.address().port);
+});
+
 
 //// error handlers
 
@@ -86,8 +90,3 @@ app.use(function (req, res, next) {
 //    });
 //});
 
-app.set('port', process.env.PORT || 3000);
-
-var server = app.listen(app.get('port'), function () {
-    debug('Express server listening on port ' + server.address().port);
-});

@@ -1,44 +1,451 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="./stylesheets/profile.css">
-</head>
-<header>
-    <%- include('header.ejs') %> <!-- this takes a RELATIVE path so make sure to check these if we use partials dir-->
-</header>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Profile</title>
+    <!--link rel="stylesheet" type="text/css" href="/stylesheets/profile.css"-->
+  </head>
+  <body>
 
-<body>
+    <h1>John Doe</h1>
 
-<h2>Profile</h2>
-<p>Select Your Favorite Genre</p>
+    <div class="container">
+      
+      <div style = "position:inline-block; left:100px; top:110px">
 
-<div class="dropdown">
-  <button class="btn dropbtn">Genre</button>
-  <div class="dropdown-content">
-  <a href="#">Pop</a>
-  <a href="#">Classic Rock</a>
-  <a href="#">Country</a>
-  <a href="#">Hip Hop</a>
-  <a href="#">Rap</a>
-  <a href="#">Electronic</a>
-  <a href="#">Dance</a>
-  <a href="#">Indie</a>
-  <a href="#">Alternative Rock</a>
-  <a href="#">Classical</a>
-  <a href="#">Jazz</a>
-  <a href="#">Instrumental</a>
-  <a href="#">Folk</a>
-  <a href="#">Reggae</a>
-  </div>
-</div>
+      <h2>Primary Genre</h2>
 
-<p1>Select Your Favorite Decade</p1>
-<div class="dropdown1">
-    <button class="btn dropbtn1">Decade</button>
-</div>
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="pop"
+              name="category"
+            />
+            <label for="pop">Pop</label>
+          </div>
 
-</body>
+          <div class="option">
+            <input type="radio" class="radio" id="classic rock" name="category" />
+            <label for="classic rock">Classic Rock</label>
+          </div>
 
+          <div class="option">
+            <input type="radio" class="radio" id="country" name="category" />
+            <label for="country">Country</label>
+          </div>
 
+          <div class="option">
+            <input type="radio" class="radio" id="hip hop" name="category" />
+            <label for="hip hop">Hip Hop</label>
+          </div>
 
+          <div class="option">
+            <input type="radio" class="radio" id="rap" name="category" />
+            <label for="rap">Rap</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="edm" name="category" />
+            <label for="edm">Electronic/Dance</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="indie" name="category" />
+            <label for="indie">Indie</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="alt rock" name="category" />
+            <label for="alt rock">Alternative Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="jazz" name="category" />
+            <label for="jazz">Jazz</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="instrumental" name="category" />
+            <label for="instrumental">Instrumental</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="folk" name="category" />
+            <label for="folk">Folk</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="reggae" name="category" />
+            <label for="reggae">Reggae</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="classical" name="category" />
+            <label for="classical">Classical</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Genres
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <h2>Secondary Genre</h2>
+
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="pop"
+              name="category"
+            />
+            <label for="pop">Pop</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="classic rock" name="category" />
+            <label for="classic rock">Classic Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="country" name="category" />
+            <label for="country">Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="hip hop" name="category" />
+            <label for="hip hop">Hip Hop</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="rap" name="category" />
+            <label for="rap">Rap</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="edm" name="category" />
+            <label for="edm">Electronic/Dance</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="indie" name="category" />
+            <label for="indie">Indie</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="alt rock" name="category" />
+            <label for="alt rock">Alternative Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="jazz" name="category" />
+            <label for="jazz">Jazz</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="instrumental" name="category" />
+            <label for="instrumental">Instrumental</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="folk" name="category" />
+            <label for="folk">Folk</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="reggae" name="category" />
+            <label for="reggae">Reggae</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="classical" name="category" />
+            <label for="classical">Classical</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Genres
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <h2>Tertiary Genre</h2>
+
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="pop"
+              name="category"
+            />
+            <label for="pop">Pop</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="classic rock" name="category" />
+            <label for="classic rock">Classic Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="country" name="category" />
+            <label for="country">Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="hip hop" name="category" />
+            <label for="hip hop">Hip Hop</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="rap" name="category" />
+            <label for="rap">Rap</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="edm" name="category" />
+            <label for="edm">Electronic/Dance</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="indie" name="category" />
+            <label for="indie">Indie</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="alt rock" name="category" />
+            <label for="alt rock">Alternative Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="jazz" name="category" />
+            <label for="jazz">Jazz</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="instrumental" name="category" />
+            <label for="instrumental">Instrumental</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="folk" name="category" />
+            <label for="folk">Folk</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="reggae" name="category" />
+            <label for="reggae">Reggae</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="classical" name="category" />
+            <label for="classical">Classical</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Genres
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <h2>Primary Decade</h2>
+
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="1940"
+              name="category"
+            />
+            <label for="1940">1940's - Swing, Jazz, Blues</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1950" name="category" />
+            <label for="1950">1950's - Rock N' Roll, b-Bop, Big Band, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1960" name="category" />
+            <label for="1960">1960's - Motown, Rock N' Roll, British Invasion</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1970" name="category" />
+            <label for="1970">1970's - Disco, Motown, R&B</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1980" name="category" />
+            <label for="1980">1980's - Glam Rock, Pop, Hip Hop, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1990" name="category" />
+            <label for="1990">1990's - Grung, Alternative, Rap, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2000" name="category" />
+            <label for="2000">2000's - Contemporary, R&B, Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2010" name="category" />
+            <label for="2010">2010's - EDM, Hip Hop</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Decades
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <h2>Secondary Decade</h2>
+
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="1940"
+              name="category"
+            />
+            <label for="1940">1940's - Swing, Jazz, Blues</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1950" name="category" />
+            <label for="1950">1950's - Rock N' Roll, b-Bop, Big Band, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1960" name="category" />
+            <label for="1960">1960's - Motown, Rock N' Roll, British Invasion</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1970" name="category" />
+            <label for="1970">1970's - Disco, Motown, R&B</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1980" name="category" />
+            <label for="1980">1980's - Glam Rock, Pop, Hip Hop, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1990" name="category" />
+            <label for="1990">1990's - Grunge, Alternative, Rap, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2000" name="category" />
+            <label for="2000">2000's - Contemporary, R&B, Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2010" name="category" />
+            <label for="2010">2010's - EDM, Hip Hop</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Decades
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+      <h2>Tertiary Decade</h2>
+
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input
+              type="radio"
+              class="radio"
+              id="1940"
+              name="category"
+            />
+            <label for="1940">1940's - Swing, Jazz, Blues</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1950" name="category" />
+            <label for="1950">1950's - Rock N' Roll, b-Bop, Big Band, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1960" name="category" />
+            <label for="1960">1960's - Motown, Rock N' Roll, British Invasion</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1970" name="category" />
+            <label for="1970">1970's - Disco, Motown, R&B</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1980" name="category" />
+            <label for="1980">1980's - Glam Rock, Pop, Hip Hop, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="1990" name="category" />
+            <label for="1990">1990's - Grung, Alternative, Rap, Country</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2000" name="category" />
+            <label for="2000">2000's - Contemporary, R&B, Rock</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="2010" name="category" />
+            <label for="2010">2010's - EDM, Hip Hop</label>
+          </div>
+        </div>
+
+        <div class="selected">
+          Decades
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+
+    </div>
+
+    <script src="js/profile.js"></script>
+  </body>
 </html>
