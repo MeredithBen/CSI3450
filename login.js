@@ -1,40 +1,36 @@
-const express = require('express');
-const router = express.Router();
 const mysqlConnection = require('../connection');
+var express = require('express');
+var router = express.Router();
 
 
-module.exports = {
-    getLoginPage: (req, res) => {
-        res.render('login.ejs');
-    },
-    createNewUser: (req, res) => {
-        var userName = req.body.username; //change to whatever the td value is for the username
-        var passWord = req.body.password; //this will probably be slightly more complicated bc its a pw
-        let userQuery = "INSERT INTO user(user_name, user_pw) VALUES(" + userName + ", " + passWord + ")";
-        mysqlConnection.query(userQuery, (err) => {
-            if (err) {
-                throw err;
+//get login page route
+router.get('/', (req, res) => {
+    res.render('login');
+})
+
+
+// login action
+router.post('/auth', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    console.log(req.body);
+    //check if user exists
+    if (username && password) {
+        mysqlConnection.query('SELECT * FROM user WHERE user_name = ? AND user_pw = ?', [username, password], function(err, results, fields) {
+            if (results.length > 0) {
+                req.session.loggedin = true;
+                req.session.username = username;
+                res.redirect('/home');
+                console.log('Login Successful');
             } else {
-                console.log("The user was added successfully!");
-                res.send("Welcome to Trouvaille!");
-            }
+                res.send('Incorrect Username and/or Password!');
+            }           
+            res.end();
         });
+    } else {
+        res.send('Please enter Username and Password!');
+        res.end();
     }
+})
 
-}
-
-/* module.exports = {
-    getFavArtistsPage: (req, res) => {
-        let query = 'SELECT * FROM artist LIMIT 100';
-        //execute query
-        mysqlConnection.query(query, (err, rows) => {
-            if (err) {
-                throw err;
-            }
-            console.log(rows);
-            res.render('favoriteartists',{
-                artist : rows
-            })
-        })
-    }
-} */
+module.exports = router;

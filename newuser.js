@@ -1,37 +1,25 @@
-const express = require('express');
-const router = express.Router();
 const mysqlConnection = require('../connection');
+var express = require('express');
+var router = express.Router();
 
+//get newuser page route
+router.get('/', (req, res) => {
+    res.render('newuser');
+})
 
-/* module.exports = {
-    getNewUserPage: (req, res) => {
-        let data = {Username: req.body.username, Password: req.body.password};
-        let query = "INSERT INTO user(user_name, user_pw VALUES(" + Username + ", " + Password +")";
-        mysqlConnection.query(query, data,(err, results) => {
-            if (err) throw err;
-            console.log(results);
-            res.redirect('/routes/login');
-        })
-    }
-} */
+router.post('/reg', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var body = req.body;
+    console.log(body);
 
-module.exports = {
-    getNewUserPage: (req, res) => {
-        res.render('newuser.ejs');
-    }
-}
-  /*   ,createNewUser: (req, res) => {
-        var userName = req.body.username; //change to whatever the td value is for the username
-        var passWord = req.body.password; //this will probably be slightly more complicated bc its a pw
-        let userQuery = "INSERT INTO user(user_name, user_pw) VALUES(" + userName + ", " + passWord + ")";
-        mysqlConnection.query(userQuery, (err) => {
-            if (err) {
-                throw err;
-            } else {
-                console.log("The user was added successfully!");
-                res.send("Welcome to Trouvaille!");
-            }
+    mysqlConnection.query('INSERT INTO user (user_id, user_pw, user_name, fav_genre_1, fav_genre_2, fav_genre_3, fav_dec_1, fav_dec_2, fav_dec_3) VALUES (DEFAULT, ?, ?, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)', [password, username], function (err, results, fields) {
+        if (err) throw err;
+        res.redirect('/login');
+        console.log(body, 'Data Insertion Successful');
+        res.end();
         });
-    }
+    })
 
-} */
+
+module.exports = router;
