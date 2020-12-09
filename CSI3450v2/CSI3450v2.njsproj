@@ -49,6 +49,9 @@
     <Content Include="routes\login.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\newuser.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="routes\profile.js">
       <SubType>Code</SubType>
     </Content>

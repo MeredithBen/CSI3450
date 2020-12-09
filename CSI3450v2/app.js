@@ -2,23 +2,22 @@
 var debug = require('debug');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var ejs = require('ejs');
+//var session = require('express-session');
 var app = express();
 
 //Check/fix all the names after Charles adds his functions! 
-const { getHomePage } = require('./routes/home');
+//const { getHomePage } = require('./routes/home');
 const { getSearchPage, search } = require('./routes/search');
-const { getPlaylistsPage, returnPlaylists } = require('./routes/playlists');
-const { getLoginPage } = require('./routes/login');
-const { getProfilePage, changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
-const { getFavSongsPage } = require('./routes/favoritesongs');
-const { getFavArtistsPage } = require('./routes/favoriteartists');
-const { getFavAlbumsPage, returnFavAlbums} = require('./routes/favoritealbums');
+//const { getPlaylistsPage, returnPlaylists } = require('./routes/playlists');
+const { getLoginPage, createNewUser, getNewUserPage } = require('./routes/login');
+//const { getProfilePage, changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
+//const { getFavSongsPage } = require('./routes/favoritesongs');
+//const { getFavArtistsPage } = require('./routes/favoriteartists');
+//const { getFavAlbumsPage, returnFavAlbums} = require('./routes/favoritealbums');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -33,23 +32,26 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/testing', getLoginPage);
-app.get('/test', returnFavAlbums)
+//app.get('/testing', getLoginPage);
+//app.get('/test', returnFavAlbums)
 
-app.get('/', getHomePage); //this might have to be login?
-app.get('/search', getSearchPage);
-app.get('/profile', getProfilePage);
-app.get('/playlists', getPlaylistsPage);
-app.get('/favoritesongs', getFavSongsPage);
-app.get('/favoriteartists', getFavArtistsPage);
-app.get('/favoritealbums', getFavAlbumsPage);
+app.get('/', getSearchPage); //this might have to be login?
+app.post('/', search);
+//app.get('/search', getSearchPage);
+//app.get('/profile', getProfilePage);
+//app.get('/playlists', getPlaylistsPage);
+//app.get('/favoritesongs', getFavSongsPage);
+//app.get('/favoriteartists', getFavArtistsPage);
+//app.get('/favoritealbums', getFavAlbumsPage);
 app.get('/login', getLoginPage);
+app.get('/newuser', getNewUserPage);
+app.post('/newuser', createNewUser);
 
-app.post('/profile', changeUsername)
-app.post('/profile', setFavDecades)
-app.post('/profile', setFavGenres)
-//app.post('/login', login);
-app.post('/search', search);
+//app.post('/profile', changeUsername)
+//app.post('/profile', setFavDecades)
+//app.post('/profile', setFavGenres)
+////app.post('/login', login);
+//app.post('/search', search);
 
 
 // catch 404 and forward to error handler
