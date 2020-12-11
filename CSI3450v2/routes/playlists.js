@@ -3,9 +3,6 @@ const router = express.Router();
 const mysqlConnection = require('../connection');
 
 module.exports = {
-    getPlaylistsPage: (req, res) => {
-        res.render('playlists.ejs');
-    },
     //this is just sample code
     returnPlaylists: (req, res) => {
         let userIDQuery = "SELECT user_id FROM user WHERE user_name = 'johnny'"; //of course change this to req.session.username or whatev

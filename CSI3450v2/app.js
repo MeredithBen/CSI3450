@@ -12,9 +12,9 @@ var app = express();
 //Check/fix all the names after Charles adds his functions! 
 //const { getHomePage } = require('./routes/home');
 const { getSearchPage, search } = require('./routes/search');
-const { getPlaylistsPage, returnPlaylists } = require('./routes/playlists');
+const { returnPlaylists } = require('./routes/playlists');
 const { getLoginPage, createNewUser, getNewUserPage } = require('./routes/login');
-//const { getProfilePage, changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
+const { getProfilePage, setUserFavorites } = require('./routes/profile');
 //const { getFavSongsPage } = require('./routes/favoritesongs');
 //const { getFavArtistsPage } = require('./routes/favoriteartists');
 //const { getFavAlbumsPage, returnFavAlbums} = require('./routes/favoritealbums');
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', getSearchPage); //this might have to be login?
 app.post('/', search);
 //app.get('/search', getSearchPage);
-//app.get('/profile', getProfilePage);
+app.get('/profile', getProfilePage);
 //app.get('/playlists', getPlaylistsPage);
 //app.get('/favoritesongs', getFavSongsPage);
 //app.get('/favoriteartists', getFavArtistsPage);
@@ -49,7 +49,7 @@ app.post('/newuser', createNewUser);
 app.get('/p', returnPlaylists);
 
 //app.post('/profile', changeUsername)
-//app.post('/profile', setFavDecades)
+app.post('/profile', setUserFavorites)
 //app.post('/profile', setFavGenres)
 ////app.post('/login', login);
 //app.post('/search', search);
