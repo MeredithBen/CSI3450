@@ -13,6 +13,7 @@ module.exports = {
     },
     createNewUser: (req, res) => {
         console.log("createNewUser function");
+        global.uid = req.body.username;
         var userName = req.body.username; //change to whatever the td value is for the username
         var passWord = req.body.password; //this will probably be slightly more complicated bc its a pw
         let userQuery = "INSERT INTO user(user_name, user_pw) VALUES('" + userName + "', '" + passWord + "' )";

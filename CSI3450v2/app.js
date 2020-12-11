@@ -12,7 +12,7 @@ var app = express();
 //Check/fix all the names after Charles adds his functions! 
 //const { getHomePage } = require('./routes/home');
 const { getSearchPage, search } = require('./routes/search');
-//const { getPlaylistsPage, returnPlaylists } = require('./routes/playlists');
+const { getPlaylistsPage, returnPlaylists } = require('./routes/playlists');
 const { getLoginPage, createNewUser, getNewUserPage } = require('./routes/login');
 //const { getProfilePage, changeUsername, setFavDecades, setFavGenres } = require('./routes/profile');
 //const { getFavSongsPage } = require('./routes/favoritesongs');
@@ -46,6 +46,7 @@ app.post('/', search);
 app.get('/login', getLoginPage);
 app.get('/newuser', getNewUserPage);
 app.post('/newuser', createNewUser);
+app.get('/p', returnPlaylists);
 
 //app.post('/profile', changeUsername)
 //app.post('/profile', setFavDecades)

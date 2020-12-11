@@ -10,6 +10,7 @@ module.exports = {
     changeUsername: (req, res) => {
         //we get the userID by setting request.session.userID = userID after their login was authenticated
             //let userID = request.session.userID; (or something like this)
+        //either we run this query on the database, or we have them input the old name and the new name
         let oldName = "SELECT user_name FROM user WHERE user_id = " + userID;
         let newName = req.body.new_name;
         let changeNameQuery = "UPDATE user SET user_name = REPLACE(user_name, " + oldName + "," + newName + ")";
