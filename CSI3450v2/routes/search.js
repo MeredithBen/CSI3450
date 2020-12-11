@@ -5,7 +5,6 @@ const mysqlConnection = require('../connection');
 
 module.exports = {
     getSearchPage: (req, res) => {
-        console.log("logging from getSearchPage function")
         res.render('search.ejs');
     },
     search: (req, res) => {
