@@ -54,7 +54,7 @@
         <h1>Playlists</h1>
 
          <div>
-            <form class="create" action="/playlists/" method="POST">
+            <form class="create" action="/playlists/create" method="POST">
             <input type="text" required class="createPlaylist" name="createPlaylist" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Playlist Name...">
             <input type="submit" class="btn1" name="btn1" value= "Create">
             </form>
@@ -72,12 +72,14 @@
             <table>
               <tr>
                 <th>Playlists</th>
+                <th>Songs</th>
               </tr>
               <tr>
                 <tbody>
                     <% for(i = 0; i < playlists.length; i++) { %>
                       <tr>
                         <td><%= playlists[i].PLIST_NAME %></td>
+                        <td><%= playlists[i].song_name %></td>                 
                           </tr>
                           <% } %>
                 </tbody>
