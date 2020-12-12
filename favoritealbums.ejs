@@ -5,9 +5,7 @@
     <head>
         <meta charset="utf-8">
         <title>Favorite Songs</title>
-        <link rel="stylesheet" href="css/favoritealbums.css">
-
-      
+        <link rel="stylesheet" href="/css/favoritealbums.css">
     </head>
 
     <!-- style for table -->
@@ -30,7 +28,6 @@
         }
         </style>
 
-
         <!-- style for textfield -->
         <style>
             input[type=text] {
@@ -50,50 +47,44 @@
             }
         </style>
 
-
     <body>
+      
+        <header><%- include('header') %></header>
+
         <h1>Favorite Albums</h1>
          
         <h2>Albums</h2>
       
-        <div class="container">
-            <button class="btn btn1">Add Album</button>
-        </div> 
-        
-        <div class="container">
-            <button class="btn btn2">Remove Album</button>
-        </div> 
-
         <div>
-            <input type="text" required class="add" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Song Name...">
+            <form class="add" action="/favoritealbums/add" method="POST">
+            <input type="text" required class="addAlbum" name="addAlbum" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Album Name...">
+            <input type="submit" class="btn1" name="btn1" value= "Add Album">
+            </form>
         </div>
 
         <div>
-            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+            <form class="remove" action="/favoritealbums/remove" method="POST">
+            <input type="text" required class="removeAlbum" name="removeAlbum" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Album Name..."> 
+            <input type="submit" class="btn2" name="btn2" value= "Remove Album">
+        </form>
         </div>
 
         <div class="container">
           <table>
             <tr>
               <th>Name</th>
-              <th>Genre</th>
-              <th>Year</th>
             </tr>
             <tr>
               <tbody>
-                  <% album.forEach(function(album){ %>
+                  <% for (let i = 0; i < album.length; i++) { %>
                       <tr>
-                          <td><%= album.ALBUM_NAME %></td>
-                          <td><%= album.ALBUM_GENRE %></td>
-                          <td><%= album.ALBUM_YEAR %></td>
+                          <td><%= album[i].album_name %></td>
                       </tr>
-                      <% }); %>
+                      <% } %>
               </tbody>
           </table>
           </div>   
           <script src="./routes/favoritealbums.js"></script>
-            
-      
-        
+          
     </body>
 </html>

@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="/css/search.css">
     <script src="https://kit.fontawesome.com/9b28d88510.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
 
+  <header><%- include('header.ejs'); %></header>
+
+    <form method="post">
     <h1>Search by Song</h1>
 
     <h2>Search by Artist</h2>
@@ -22,31 +24,55 @@
     <p>Trouvaille</p>
 
   <div class="search-box">
-      <input class="search-txt" type="text" name="" placeholder="Type to search">
+      <input class="search-txt" type="text" name="searchSong" placeholder="Type to search">
       <a class="search-btn" href="#">
         <i class="fas fa-search"></i>
       </a>
   </div>  
 
   <div class="search-box2">
-    <input class="search-txt2" type="text" name="" placeholder="Type to search">
+    <input class="search-txt2" type="text" name="searchArtist" placeholder="Type to search">
     <a class="search-btn2" href="#">
       <i class="fas fa-search"></i>
     </a>
 </div>  
 
 <div class="search-box3">
-    <input class="search-txt3" type="text" name="" placeholder="Type to search">
+    <input class="search-txt3" type="text" name="searchGenre" placeholder="Type to search">
     <a class="search-btn3" href="#">
       <i class="fas fa-search"></i>
     </a>
 </div>  
 
 <div class="search-box4">
-    <input class="search-txt4" type="text" name="" placeholder="Type to search">
+    <input class="search-txt4" type="text" name="searchDecade" placeholder="Type to search">
     <a class="search-btn4" href="#">
       <i class="fas fa-search"></i>
     </a>
 </div> 
+<div class="container">
+  <button type="submit" class="btn btn1">Search!</button>
+  
+</div>
+</form>
+
+ <div class="container-table">
+  <table>
+    <tr>
+      <th>Songs</th>
+    </tr>
+    <tr>
+      <tbody>
+        <% if(typeof outputArray != 'undefined'){%>
+          <ul>
+             <% outputArray.forEach(function(song) { %>
+              <tr>
+                  <td><%= song %></td> 
+              </tr>
+              <% }); %>
+       <% } %>
+      </tbody>
+  </table>
+  </div>   
 </body>
 </html>

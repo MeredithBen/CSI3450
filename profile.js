@@ -2,104 +2,87 @@ const express = require('express');
 const router = express.Router();
 const mysqlConnection = require('../connection');
 
+router.get('/', (req, res) => {
+    res.render('profile', {username : req.session.username});
+})
+   
+    router.post('/save'), (req, res) => {
+        var username = req.session.username;
+        let favDec1 = req.body.decade1;
+        let favDec2 = req.body.decade2;
+        let favDec3 = req.body.decade3;
+        console.log("Your favorite decades:", favDec1, favDec2, favDec3);
+        let favGen1 = req.body.genre1;
+        let favGen2 = req.body.genre2;
+        let favGen3 = req.body.genre3;
+        console.log("Your favorite genres are: ", favGen1, favGen2, favGen3);
+        
 
-
-
-module.exports = {
-    getProfilePage: (req, res) => {
-        res.render('profile.ejs');
-    },
-    changeUsername: (req, res) => {
-        //we get the userID by setting request.session.userID = userID after their login was authenticated
-            //let userID = request.session.userID; (or something like this)
-        let oldName = "SELECT user_name FROM user WHERE user_id = " + userID;
-        let newName = req.body.new_name;
-        let changeNameQuery = "UPDATE user SET user_name = REPLACE(user_name, " + oldName + "," + newName + ")";
-        mysqlConnection.query(changeNameQuery, (err) => {
-            if (err) {
-                throw err;
-            } else {
-                console.log("The username was changed successfully.");
-                res.send("Your new username has been saved!");
-            }
-        });
-    },
-    setFavDecades: (req, res) => {
-        let favDec1 = req.body.favDec1;
-        let favDec2 = req.body.favDec2;
-        let favDec3 = req.body.favDec3;
-        if (favDec1) {
-            decQuery = "UPDATE user SET fav_dec_1 = '\"" + favDec1 + "'\"";
-            mysqlConnection.query(decQuery, (err) => {
-                if (err) {
-                    throw err;
-                } else {
-                    console.log("First Favorite Decade added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
-        }
-        if (favDec2) {
-            decQuery = "UPDATE user SET fav_dec_2 = '\"" + favDec2 + "'\"";
-            mysqlConnection.query(decQuery, (err) => {
-                if (err) {
-                    throw err;
-                } else {
-                    console.log("Second Favorite Decade added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
-        }
-        if (favDec3) {
-            decQuery = "UPDATE user SET fav_dec_3 = '\"" + favDec3 + "'\"";
-            mysqlConnection.query(decQuery, (err) => {
-                if (err) {
-                    throw err;
-                } else {
-                    console.log("Third Favorite Decade added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
-        }
-    },
-
-    setFavGenres: (req, res) => {
-        let favGen1 = req.body.favGen1;
-        let favGen2 = req.body.favGen2;
-        let favGen3 = req.body.favGen3;
         if (favGen1) {
-            genQuery = "UPDATE user SET fav_gen_1 = '\"" + favGen1 + "'\"";
+            console.log("favGen1");
+            genQuery = "UPDATE user SET fav_genre_1 = '\"" + favGen1 + "\"' WHERE user_name = " + username;
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;
                 } else {
                     console.log("First Favorite Genre added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
-        }
+                    }
+                });
+            }
         if (favGen2) {
-            genQuery = "UPDATE user SET fav_gen_2 = '\"" + favGen2 + "'\"";
+            console.log("favGen2");
+            genQuery = "UPDATE user SET fav_genre_2 = '\"" + favGen2 + "\"' WHERE user_name = " + username;
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;
                 } else {
                     console.log("Second Favorite Genre added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
-        }
+                    }
+                });
+            }
         if (favGen3) {
-            genQuery = "UPDATE user SET fav_gen_3 = '\"" + favGen3 + "'\"";
+            console.log("favGen3");
+            genQuery = "UPDATE user SET fav_genre_3 = '\"" + favGen3 + "\"' WHERE user_name = " + username;
             mysqlConnection.query(genQuery, (err) => {
                 if (err) {
                     throw err;
                 } else {
                     console.log("Third Favorite Genre added successfully.");
-                    res.send("Your favorites have been saved!");
-                }
-            });
+                    }
+                });
+            }
+        if (favDec1) {
+            decQuery = "UPDATE user SET fav_dec_1 = " + favDec1 + " WHERE user_name = " + username; 
+            mysqlConnection.query(decQuery, (err) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("First Favorite Decade added successfully.");
+                    }
+                });
+            }
+        if (favDec2) {
+            decQuery = "UPDATE user SET fav_dec_2 = " + favDec2 + " WHERE user_name = " + username;
+            mysqlConnection.query(decQuery, (err) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("Second Favorite Decade added successfully.");
+                    }
+                });
+            }
+        if (favDec3) {
+            decQuery = "UPDATE user SET fav_dec_3 = " + favDec3 + " WHERE user_name = " + username;
+            mysqlConnection.query(decQuery, (err) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("Third Favorite Decade added successfully.");
+                    }
+                });
+            }
+            res.redirect('home');
         }
-    }
 
-}
+
+module.exports = router; 

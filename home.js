@@ -3,9 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 
-
-
-
 //redirect user after logging in
 router.get('/', function(req, res) {
     if (req.session.loggedin) {
@@ -15,8 +12,6 @@ router.get('/', function(req, res) {
     }
     res.end();
 })
-
-
 
 module.exports = router;
 

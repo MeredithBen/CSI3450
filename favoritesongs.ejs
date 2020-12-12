@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" and dir="Itr">
 
-
     <head>
         <meta charset="utf-8">
         <title>Favorite Songs</title>
-        <link rel="stylesheet" href="css/favoritesongs.css"> 
+        <link rel="stylesheet" href="/css/favoritesongs.css"> 
     </head>
 
     <!-- style for table -->
@@ -28,7 +27,6 @@
         }
         </style>
 
-
         <!-- style for textfield -->
         <style>
             input[type=text] {
@@ -49,42 +47,44 @@
         </style>
 
     <body>
+
+        <header><%- include('header.ejs'); %></header>
+
         <h1>Favorite Songs</h1>
 
         <h2>Songs</h2>
 
-        <div class="container">
-            <button class="btn btn1">Add Song</button>
-        </div> 
-        
-        <div class="container">
-            <button class="btn btn2">Remove Song</button>
-        </div> 
-
         <div>
-            <input type="text" required class="add" style ="background-color: rgb(255, 254, 254);" placeholder= "Enter Song Name...">
+            <form class="add" action="/favoritesongs/add" method="POST">
+            <input type="text" required class="addSong" name="addSong"style ="background-color: rgb(255, 254, 254);" placeholder= "Enter Song Name...">
+            <input type="submit" class="btn1" name="btn1" value= "Add Song">
+            
+        </form>
         </div>
 
         <div>
-            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+            <form class="remove" action="/favoritesongs/remove" method="POST">
+            <input type="text" required class="removeSong" name="removeSong" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+            <input type="submit" class="btn2" name="btn2" value= "Remove Song">
+        </form>
         </div>
 
         <div class="container">
 <table>
   <tr>
-    <th>Name</th>
-    <th>Genre</th>
-    <th>Decade</th>
+    
+    <th>Song Name</th>
+
   </tr>
   <tr>
     <tbody>
-        <% song.forEach(function(song){ %>
+        <% for (let i = 0; i < song.length; i++) { %>
             <tr>
-                <td><%= song.SONG_NAME %></td>
-                <td><%= song.SONG_GENRE %></td>
-                <td><%= song.DECADE %></td>
+                
+                <td><%= song[i].song_name %></td>
+                
             </tr>
-            <% }); %>
+            <% } %>
     </tbody>
 </table>
 </div>           

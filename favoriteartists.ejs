@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" and dir="Itr">
 
-
     <head>
         <meta charset="utf-8">
         <title>Favorite Songs</title>
-        <link rel="stylesheet" href="css/favoriteartists.css">
+        <link rel="stylesheet" href="/css/favoriteartists.css">
     </head>
 
     <style>
@@ -47,46 +46,44 @@
             }
         </style>
 
-
     <body>
+
+        <header><%- include('header.ejs'); %></header>
+
         <h1>Favorite Artists</h1>
 
-        <h2>Songs</h2>
-
-        <div class="container">
-            <button class="btn btn1">Add Artist</button>
-        </div> 
+        <h2>Artists</h2>
         
-        <div class="container">
-            <button class="btn btn2">Remove Artist</button>
-
         <div>
-            <input type="text" required class="add" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Song Name...">
+            <form class="add" action="/favoriteartists/add" method="POST">
+            <input type="text" required class="addArtist" name="addArtist" style ="background-color: rgb(255, 255, 255);" placeholder= "Enter Artist Name...">
+            <input type="submit" class="btn1" name="btn1" value= "Add Artist">
+            </form>
         </div>
 
         <div>
-            <input type="text" required class="remove" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Song Name..."> 
+            <form class="remove" action="/favoriteartists/remove" method="POST">
+            <input type="text" required class="removeArtist" name="removeArtist" style ="background-color: rgb(255, 255, 255);" placeholder="Enter Artist Name..."> 
+            <input type="submit" class="btn2" name="btn2" value= "Remove Artist">
+        </form>
         </div>
 
         <div class="container">
           <table>
             <tr>
               <th>Name</th>
-              <th>Genre</th>
-              <th>Decade</th>
             </tr>
             <tr>
               <tbody>
-                  <% artist.forEach(function(artist){ %>
+                  <% for (let i = 0; i < artist.length; i++) { %>
                       <tr>
-                          <td><%= artist.ARTIST_NAME %></td>
-                          <td><%= artist.ARTIST_GENRE %></td>
-                          <td><%= artist.ARTIST_DEC %></td>
+                          <td><%= artist[i].artist_name %></td> 
                       </tr>
-                      <% }); %>
+                      <% } %>
               </tbody>
           </table>
-          </div>   
+          </div> 
+
           <script src="./routes/favoriteartists.js"></script>
     </body>
 </html>
